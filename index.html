@@ -1,0 +1,1459 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071426">
+  <meta name="description" content="Personal CV and portfolio of Roxane G. Cabanig, a 4th-year BSIT student interested in web development, networking, and IT support.">
+  <title>Roxane G. Cabanig | IT Student Portfolio</title>
+
+  <style>
+    /* ===== 1. GLOBAL STYLES ===== */
+    :root {
+      --bg: #071426;
+      --surface: #0c1e35;
+      --surface2: #102741;
+      --text: #eaf4ff;
+      --muted: #a9bbd2;
+      --accent: #22d3ee;
+      --accent2: #38bdf8;
+      --border: rgba(56, 189, 248, 0.2);
+      --shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.light {
+      --bg: #f1f7fc;
+      --surface: #ffffff;
+      --surface2: #e5f2fc;
+      --text: #10243a;
+      --muted: #53677d;
+      --border: rgba(2, 132, 199, 0.22);
+      --shadow: 0 12px 35px rgba(20, 60, 100, 0.08);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button:focus-visible, a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    .section {
+      padding: 85px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 32px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 3px;
+      font-weight: 700;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      line-height: 1.25;
+      margin-top: 8px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      margin-top: 10px;
+      max-width: 620px;
+    }
+
+    .accent {
+      color: var(--accent);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    /* ===== 2. NAVIGATION ===== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+    }
+
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 43px;
+      height: 43px;
+      border-radius: 12px;
+      color: #041321;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      font-size: 1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 23px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.88rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent);
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .icon-button {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--text);
+      background: var(--surface);
+      cursor: pointer;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .icon-button:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.35rem;
+    }
+
+    /* ===== 3. HERO ===== */
+    .hero {
+      min-height: 570px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 85% 35%,
+          rgba(14, 116, 185, 0.18), transparent 38%),
+        linear-gradient(135deg, var(--bg), var(--surface));
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 60px;
+      padding-top: 65px;
+      padding-bottom: 65px;
+    }
+
+    .hero-copy {
+      animation: slideUp 0.8s ease both;
+    }
+
+    .hero-copy .greeting {
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5.5vw, 4.4rem);
+      line-height: 1.1;
+      letter-spacing: -2px;
+      margin-bottom: 12px;
+    }
+
+    .hero h2 {
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2.5vw, 1.45rem);
+      margin-bottom: 20px;
+    }
+
+    .hero-description {
+      max-width: 590px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 12px 21px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: transform 0.25s, box-shadow 0.25s,
+        background 0.25s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary {
+      background: linear-gradient(120deg, var(--accent), var(--accent2));
+      color: #031321;
+      border-color: transparent;
+    }
+
+    .btn-outline {
+      color: var(--text);
+      background: var(--surface);
+    }
+
+    .hero-visual {
+      display: grid;
+      place-items: center;
+      animation: fadeIn 1.2s ease both;
+    }
+
+    .profile-frame {
+      position: relative;
+      width: min(340px, 75vw);
+      aspect-ratio: 1;
+      padding: 10px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      background: linear-gradient(135deg, var(--surface2), var(--bg));
+      box-shadow: 0 0 45px rgba(34, 211, 238, 0.15);
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .profile-frame::before {
+      content: "";
+      position: absolute;
+      inset: -13px;
+      border: 1px dashed var(--accent2);
+      border-radius: 50%;
+      opacity: 0.55;
+    }
+
+    .profile-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      background: var(--surface2);
+    }
+
+    .profile-fallback {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--surface2);
+      color: var(--accent);
+      font-size: 5rem;
+      font-weight: 800;
+    }
+
+    .floating-label {
+      position: absolute;
+      right: -22px;
+      bottom: 25px;
+      padding: 12px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      font-size: 0.85rem;
+    }
+
+    /* ===== 4. ABOUT ===== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 25px;
+    }
+
+    .panel, .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s, border-color 0.25s;
+    }
+
+    .panel:hover, .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .panel h3, .card h3 {
+      margin-bottom: 12px;
+      font-size: 1.15rem;
+    }
+
+    .panel p, .card p {
+      color: var(--muted);
+    }
+
+    .objective {
+      margin-top: 22px;
+      padding-left: 17px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .info-list {
+      list-style: none;
+      display: grid;
+      gap: 16px;
+    }
+
+    .info-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+    }
+
+    .info-icon {
+      color: var(--accent);
+      font-size: 1.15rem;
+    }
+
+    .info-list strong {
+      display: block;
+    }
+
+    .info-list span:last-child {
+      color: var(--muted);
+      overflow-wrap: anywhere;
+    }
+
+    /* ===== 5. EDUCATION ===== */
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .education-card {
+      position: relative;
+      padding-left: 24px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .education-card .date {
+      color: var(--accent);
+      font-size: 0.83rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .education-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .education-card p {
+      color: var(--muted);
+    }
+
+    /* ===== 6. SKILLS ===== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 23px;
+    }
+
+    .skill-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 14px;
+    }
+
+    .skill-top h3 {
+      font-size: 1rem;
+    }
+
+    .skill-top span {
+      color: var(--accent);
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    .skill-track {
+      height: 8px;
+      background: var(--surface2);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .skill-fill {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent2), var(--accent));
+      transition: width 1.2s ease;
+    }
+
+    .skills-note {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    /* ===== 7. PROJECTS ===== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 23px;
+    }
+
+    .project-card {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .project-preview {
+      min-height: 175px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 24px;
+      background:
+        radial-gradient(circle at top right,
+          rgba(34, 211, 238, 0.16), transparent 55%),
+        var(--surface2);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-symbol {
+      font-size: 3rem;
+      margin-bottom: 5px;
+    }
+
+    .project-body {
+      padding: 24px;
+    }
+
+    .project-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .status {
+      flex-shrink: 0;
+      padding: 4px 9px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      background: var(--surface2);
+      color: var(--accent);
+    }
+
+    .project-body p {
+      margin-bottom: 14px;
+    }
+
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 19px;
+    }
+
+    .tech-list span {
+      padding: 5px 9px;
+      border-radius: 7px;
+      background: var(--surface2);
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .project-links .btn {
+      padding: 9px 13px;
+      font-size: 0.83rem;
+    }
+
+    /* ===== 8. EXPERIENCE & ACHIEVEMENTS ===== */
+    .two-column {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 23px;
+    }
+
+    .detail-list {
+      list-style: none;
+      display: grid;
+      gap: 13px;
+    }
+
+    .detail-list li {
+      display: flex;
+      gap: 12px;
+      color: var(--muted);
+    }
+
+    .detail-list li::before {
+      content: "▹";
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    /* ===== 9. CONTACT ===== */
+    .contact-box {
+      text-align: center;
+      padding: 45px 25px;
+      background:
+        radial-gradient(ellipse at top,
+          rgba(34, 211, 238, 0.12), transparent 70%),
+        var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+    }
+
+    .contact-box h2 {
+      font-size: clamp(1.7rem, 4vw, 2.5rem);
+      margin-bottom: 12px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto 24px;
+    }
+
+    .contact-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* ===== 10. FOOTER ===== */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 25px 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .back-top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 500;
+      width: 46px;
+      height: 46px;
+      border: none;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #031321;
+      font-size: 1.3rem;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: 0.25s;
+    }
+
+    .back-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    /* ===== 11. ANIMATIONS ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-9px); }
+    }
+
+    /* ===== 12. RESPONSIVE DESIGN ===== */
+    @media (max-width: 950px) {
+      .menu-toggle {
+        display: inline-block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        padding: 22px 5%;
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 10px 0;
+      }
+
+      .hero-grid {
+        gap: 35px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .section {
+        padding: 62px 0;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 42px;
+        padding-top: 65px;
+        padding-bottom: 70px;
+      }
+
+      .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        grid-row: 1;
+      }
+
+      .profile-frame {
+        width: min(250px, 65vw);
+      }
+
+      .floating-label {
+        right: -8px;
+      }
+
+      .about-grid,
+      .education-grid,
+      .skills-grid,
+      .projects-grid,
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading {
+        margin-bottom: 25px;
+      }
+
+      .panel, .card {
+        padding: 21px;
+      }
+
+      .project-card {
+        padding: 0;
+      }
+
+      .project-heading {
+        flex-wrap: wrap;
+      }
+
+      .footer-inner {
+        justify-content: center;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .container {
+        width: 92%;
+      }
+
+      .brand {
+        font-size: 0.85rem;
+      }
+
+      .brand-mark {
+        width: 37px;
+        height: 37px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1px;
+      }
+
+      .btn {
+        padding: 11px 14px;
+      }
+
+      .nav-actions {
+        gap: 6px;
+      }
+
+      .icon-button {
+        width: 37px;
+        height: 37px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  
+    .project-image {
+      display: block;
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      object-position: center;
+      border-bottom: 1px solid var(--border, rgba(255,255,255,.12));
+    }
+    .certificate-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 24px;
+    }
+    .certificate-card { overflow: hidden; }
+    .certificate-image {
+      display: block; width: 100%; height: auto; background: #fff;
+    }
+    .certificate-caption { padding: 18px 20px; }
+    .certificate-caption h3 { margin-bottom: 7px; }
+    .certificate-caption p { margin: 0; }
+    .profile-photo {
+      width: 100%; max-width: 320px; height: 390px;
+      object-fit: cover; object-position: center 25%;
+      border-radius: 22px; display: block; margin: 0 auto;
+    }
+    @media (max-width: 700px) {
+      .certificate-grid { grid-template-columns: 1fr; }
+      .project-image { height: auto; max-height: 260px; }
+      .profile-photo { max-width: 260px; height: 330px; }
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- NAVIGATION -->
+  <header>
+    <div class="container navbar">
+      <a class="brand" href="#home" aria-label="Roxane Cabanig home">
+        <span class="brand-mark">RC</span>
+        <span>Roxane G. Cabanig</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-button" id="themeToggle"
+          aria-label="Switch color theme" title="Switch theme">☀</button>
+        <button class="icon-button menu-toggle" id="menuToggle"
+          aria-label="Open navigation" aria-expanded="false"
+          aria-controls="navLinks">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="greeting">Hello, welcome to my portfolio!</p>
+          <h1>Roxane G. <span class="accent">Cabanig</span></h1>
+          <h2>Information Technology Student</h2>
+
+          <p class="hero-description">
+            I am a 4th-year BSIT student passionate about technology, web
+            development, and continuous learning. I enjoy exploring new tools,
+            solving technical problems, and building my skills through
+            hands-on projects.
+          </p>
+
+          <div class="hero-buttons">
+            <a class="btn btn-primary" href="#projects">
+              Explore My Projects <span aria-hidden="true">→</span>
+            </a>
+            <a class="btn btn-outline"
+              href="https://github.com/cabanigroxane-ux"
+              target="_blank" rel="noopener noreferrer">
+              GitHub Profile ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="profile-frame">
+            <img src="formal.jpeg" alt="Profile picture of Roxane G. Cabanig"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
+            <div class="profile-fallback" style="display:none"
+              aria-hidden="true">RC</div>
+            <div class="floating-label">
+              <span class="accent">✦</span> Learn · Build · Grow
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Get to know me</p>
+          <h2>About <span class="accent">Me</span></h2>
+        </div>
+
+        <div class="about-grid">
+          <article class="panel reveal">
+            <h3>Personal Profile</h3>
+            <p>
+              I am a 4th-year BSIT student passionate about technology, web
+              development, and continuous learning. I enjoy exploring new
+              tools, solving technical problems, and building my skills through
+              hands-on projects. My career interests include network
+              configuration, RJ45 Ethernet cable crimping, operating system
+              installation and setup, and web development.
+            </p>
+
+            <div class="objective">
+              <h3 class="accent">Career Objective</h3>
+              <p>
+                To grow as an IT professional by applying my technical
+                knowledge, improving my development skills, and contributing
+                to useful and reliable technology solutions.
+              </p>
+            </div>
+          </article>
+
+          <article class="panel reveal">
+            <h3>Basic Information</h3>
+            <ul class="info-list">
+              <li>
+                <span class="info-icon" aria-hidden="true">⌖</span>
+                <div>
+                  <strong>School</strong>
+                  <span>Davao del Norte State College</span>
+                </div>
+              </li>
+              <li>
+                <span class="info-icon" aria-hidden="true">⌘</span>
+                <div>
+                  <strong>Program / Year Level</strong>
+                  <span>Bachelor of Science in Information Technology — 4th Year</span>
+                </div>
+              </li>
+              <li>
+                <span class="info-icon" aria-hidden="true">⌖</span>
+                <div>
+                  <strong>Location</strong>
+                  <span>San Roque, City of Panabo, Davao del Norte</span>
+                </div>
+              </li>
+              <li>
+                <span class="info-icon" aria-hidden="true">✉</span>
+                <div>
+                  <strong>Email Address</strong>
+                  <a class="accent" href="mailto:cabanig.roxane@dnsc.edu.ph">
+                    cabanig.roxane@dnsc.edu.ph
+                  </a>
+                </div>
+              </li>
+              <li>
+                <span class="info-icon" aria-hidden="true">◎</span>
+                <div>
+                  <strong>Career Interests</strong>
+                  <span>Network Configuration, RJ45 Cable Crimping, Operating System Installation and Setup, and Web Development</span>
+                </div>
+              </li>
+              <li>
+                <span class="info-icon" aria-hidden="true">↗</span>
+                <div>
+                  <strong>GitHub</strong>
+                  <a class="accent"
+                    href="https://github.com/cabanigroxane-ux"
+                    target="_blank" rel="noopener noreferrer">
+                    github.com/cabanigroxane-ux
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section" id="education">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">My academic background</p>
+          <h2>Education</h2>
+        </div>
+
+        <div class="education-grid">
+          <article class="panel education-card reveal">
+            <p class="date">Current</p>
+            <h3>Bachelor of Science in Information Technology</h3>
+            <p>Davao del Norte State College</p>
+            <p>Institute of Computing</p>
+            <p class="muted">4th Year Student</p>
+          </article>
+
+          <article class="panel education-card reveal">
+            <p class="date">Previous education</p>
+            <h3>Senior High School</h3>
+            <p class="muted">
+              Mabunao National High School, ICT Strand (2022-2023)
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">What I am learning</p>
+          <h2>Technical <span class="accent">Skills</span></h2>
+          <p>
+            Skills developed through coursework, hands-on practice,
+            and personal projects.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <div class="skill-top">
+              <h3>Computer System Servicing</h3>
+              <span>Learning</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" data-level="80"></div>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-top">
+              <h3>Networking Fundamentals</h3>
+              <span>Learning</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" data-level="70"></div>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-top">
+              <h3>Git &amp; GitHub</h3>
+              <span>Learning</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" data-level="60"></div>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-top">
+              <h3>Basic UI/UX Design</h3>
+              <span>Learning</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" data-level="60"></div>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-top">
+              <h3>HTML &amp; CSS</h3>
+              <span>Learning</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" data-level="65"></div>
+            </div>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-top">
+              <h3>JavaScript</h3>
+              <span>Learning</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill" data-level="40"></div>
+            </div>
+          </article>
+        </div>
+
+        
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">My work</p>
+          <h2>Featured <span class="accent">Projects</span></h2>
+          <p>
+            Academic and personal projects that demonstrate my learning
+            and practical application of IT concepts.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="card project-card reveal">
+            <img class="project-image" src="project3.jpg" alt="Screenshot of the EyaHub AI tools in education website" loading="lazy">
+            <div class="project-body">
+              <div class="project-heading">
+                <h3>EyayHub — AI Tools in Education Website </h3>
+                <span class="status">Web Development</span>
+              </div>
+              <p>
+                A website that explores the use of artificial intelligence tools in education. It presents information about AI technologies and their role in improving learning, productivity, and access to educational resources through a technology-inspired interface.
+              </p>
+              <div class="tech-list">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+              </div>
+              
+            </div>
+          </article>
+
+          <article class="card project-card reveal">
+            <img class="project-image" src="project2.png" alt="Screenshot of the Sangguniang Kabataan officials profiling application" loading="lazy">
+            <div class="project-body">
+              <div class="project-heading">
+                <h3>Sangguniang Kabataan Officials Profiling System</h3>
+                <span class="status">Desktop Application</span>
+              </div>
+              <p>
+                A desktop application designed to support the profiling and management of Sangguniang Kabataan (SK) officials in Davao del Norte. The system provides an interface for administrative access and registration, helping organize officials' information.
+              </p>
+              <div class="tech-list">
+                <span>Java</span>
+                <span>Java Swing</span>
+                <span>NetBeans</span>
+              </div>
+              
+            </div>
+          </article>
+          
+          <article class="card project-card reveal">
+            <img class="project-image" src="project1.jpeg" alt="Screenshot of the RRM Tiles login interface" loading="lazy">
+            <div class="project-body">
+              <div class="project-heading">
+                <h3>RRM Tiles Login Interface</h3>
+                <span class="status">Desktop or Web Application</span>
+              </div>
+              <p>
+                A login interface concept for an employee and administrator
+                system, designed around a simple authentication screen and
+                company branding.
+              </p>
+              <div class="tech-list">
+                <span>UI Design</span>
+                <span>Login Interface</span>
+                <span>Web Design</span>
+              </div>
+            </div>
+          </article>
+          <article class="card project-card reveal">
+            <img class="project-image" src="project4.png" alt="Screenshot of the Sangguniang Kabataan officials profiling application" loading="lazy">
+            <div class="project-body">
+              <div class="project-heading">
+                <h3>FabriCare</h3>
+                <span class="status">UI/UX Design</span>
+              </div>
+              <p>
+                A mobile application concept designed to help users care for their clothing through personalized washing, drying, and storage recommendations. Features a clean, minimalist interface that makes garment care simple and convenient.
+              </p>
+              <div class="tech-list">
+                <span>Flutter</span>
+                <span>Python</span>
+                <span>MySQL</span>
+              </div>
+              <p class="muted">
+                Academic capstone project. Features and implementation
+                status should be updated as development progresses.
+              </p>
+            </div>
+          </article>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">My journey</p>
+          <h2>Experience &amp; <span class="accent">Involvement</span></h2>
+        </div>
+
+        <div class="two-column">
+          <article class="panel reveal">
+            <h3>Academic Experience</h3>
+            <ul class="detail-list">
+              <li>BSIT coursework and practical activities</li>
+              <li>Personal CV website development</li>
+              <li>Git and GitHub version-control practice</li>
+              <li>Aqua Care capstone proposal</li>
+            </ul>
+          </article>
+
+          <article class="panel reveal">
+            <h3>Professional Development</h3>
+            <ul class="detail-list">
+              <li>Building web development skills</li>
+              <li>Practicing networking fundamentals</li>
+              <li>Exploring UI/UX design principles</li>
+              <li>Developing collaborative problem-solving skills</li>
+            </ul>
+           
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section class="section" id="achievements">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Learning and growth</p>
+          <h2>Achievements &amp; <span class="accent">Certifications</span></h2>
+        </div>
+
+        <div class="certificate-grid">
+          <article class="card certificate-card reveal">
+            <img class="certificate-image" src="cert1.png" alt="Cisco Networking Academy certificate for Introduction to Networks" loading="lazy">
+            <div class="certificate-caption">
+              <h3>CCNA: Introduction to Networks</h3>
+              <p class="muted">Cisco Networking Academy · Davao del Norte State College · June 11, 2025</p>
+            </div>
+          </article>
+          <article class="card certificate-card reveal">
+            <img class="certificate-image" src="cert2.png" alt="Cisco Networking Academy certificate for Switching, Routing, and Wireless Essentials" loading="lazy">
+            <div class="certificate-caption">
+              <h3>CCNA: Switching, Routing, and Wireless Essentials</h3>
+              <p class="muted">Cisco Networking Academy · Davao del Norte State College · December 1, 2025</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-box reveal">
+          <p class="eyebrow">Let's connect</p>
+          <h2>Interested in my <span class="accent">work?</span></h2>
+          <p>
+            Explore my code repositories and follow my progress as I continue
+            learning and building projects in Information Technology.
+          </p>
+          <div class="contact-actions">
+            <a class="btn btn-primary"
+              href="mailto:cabanig.roxane@dnsc.edu.ph">
+              Email Me ↗
+            </a>
+            <a class="btn btn-outline"
+              href="https://github.com/cabanigroxane-ux"
+              target="_blank" rel="noopener noreferrer">
+              Visit My GitHub ↗
+            </a>
+            <!-- Replace the general Facebook URL with your exact profile URL
+                 so visitors can open the correct Roxane Gavino Cabanig account. -->
+            <a class="btn btn-outline"
+              href="https://www.facebook.com/"
+              target="_blank" rel="noopener noreferrer">
+              Facebook: Roxane Gavino Cabanig ↗
+            </a>
+          </div>
+          <p style="margin-top:20px;font-size:.9rem;">
+            <strong>Email:</strong>
+            <a class="accent" href="mailto:cabanig.roxane@dnsc.edu.ph">
+              cabanig.roxane@dnsc.edu.ph
+            </a>
+          </p>
+          <p style="font-size:.9rem;">
+            <strong>Location:</strong> San Roque, City of Panabo, Davao del Norte
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Roxane G. Cabanig</p>
+      <p>Information Technology Student · Built with HTML, CSS &amp; JS</p>
+      <a href="#home" class="accent">Back to Home ↑</a>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop"
+    aria-label="Back to top" title="Back to top">↑</button>
+
+  <script>
+    // ===== 1. MOBILE NAVIGATION =====
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation" : "Open navigation"
+      );
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    // Close the mobile menu after choosing a section.
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // ===== 2. LIGHT AND DARK THEME =====
+    const themeToggle = document.getElementById("themeToggle");
+
+    themeToggle.addEventListener("click", () => {
+      const isLight = document.body.classList.toggle("light");
+      themeToggle.textContent = isLight ? "☾" : "☀";
+      themeToggle.setAttribute(
+        "aria-label",
+        isLight ? "Switch to dark theme" : "Switch to light theme"
+      );
+    });
+
+    // ===== 3. SCROLL REVEAL AND SKILL BARS =====
+    const revealItems = document.querySelectorAll(".reveal");
+    const skillFills = document.querySelectorAll(".skill-fill");
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+
+            entry.target.querySelectorAll(".skill-fill").forEach(bar => {
+              bar.style.width = bar.dataset.level + "%";
+            });
+
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealItems.forEach(item => revealObserver.observe(item));
+
+      const skillObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.width = entry.target.dataset.level + "%";
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      skillFills.forEach(bar => skillObserver.observe(bar));
+    } else {
+      revealItems.forEach(item => item.classList.add("visible"));
+      skillFills.forEach(bar => {
+        bar.style.width = bar.dataset.level + "%";
+      });
+    }
+
+    // ===== 4. BACK-TO-TOP BUTTON =====
+    const backTop = document.getElementById("backTop");
+
+    window.addEventListener("scroll", () => {
+      backTop.classList.toggle("visible", window.scrollY > 400);
+    }, { passive: true });
+
+    backTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // ===== 5. ACTIVE NAVIGATION LINK =====
+    const sections = document.querySelectorAll("main section[id]");
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.querySelectorAll("a").forEach(link => {
+            link.classList.toggle(
+              "active",
+              link.getAttribute("href") === "#" + entry.target.id
+            );
+          });
+        }
+      });
+    }, { rootMargin: "-25% 0px -60% 0px" });
+
+    sections.forEach(section => sectionObserver.observe(section));
+
+    // ===== 6. AUTOMATIC COPYRIGHT YEAR =====
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
