@@ -12,4 +12,4 @@ Vercel (Deployment)
 
 Student Name: CABANIG, ROXANE G.
 
-Live Vercel Link: 
+Live Vercel Link: https://cvwebsite-pi.vercel.app/
